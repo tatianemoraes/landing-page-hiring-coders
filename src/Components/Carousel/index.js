@@ -14,7 +14,7 @@ import {
 
 function CarouselItems() {
   return (
-    <CarouselProps>
+    <CarouselProps showThumbs={false}>
       <div>
          <ImgCarousel path={image1} alt="image1" />
         <p>Product: 1</p>

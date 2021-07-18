@@ -13,17 +13,17 @@ function Form() {
 
   return (
     <Container>
-      <FormContainer>
-        <Sentences>Deseja receber nossas Promoções?</Sentences>
-        <Sentences>Cadastre seu e-mail</Sentences>
+      <FormContainer onSubmit={(e) => saveInDb(e, email, setEmail)}>
+        <Sentences>Would you like to receive our offers?</Sentences>
+        <Sentences>Subscribe your email</Sentences>
         <InputEmail 
           type="email" 
           placeholder='email@email.com'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           />
-        <ActionButton onClick={() => saveInDb()}>
-          Inscrever
+        <ActionButton type='submit'>
+          Subscribe
         </ActionButton>
       </FormContainer>
     </Container>

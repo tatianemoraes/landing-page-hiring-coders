@@ -1,12 +1,20 @@
-export function saveInDb(email) {
+export function saveInDb(e, email, setEmail) {
+  e.preventDefault();
   const getStorage = localStorage.getItem('emails');
+  const emailArray = [];
+
   if(getStorage) {
 
     const emails = JSON.parse(getStorage);
     
-    emails.push(email);
+    emails.push({ email:email });
 
-    localStorage.setItem('emails', emails);
+    localStorage.setItem('emails', JSON.stringify(emails));
+    setEmail('');
+    return;
   } 
-  localStorage.setItem('emails', [{ email }]);
+
+  emailArray.push({ email:email });
+  localStorage.setItem('emails', JSON.stringify(emailArray));
+  setEmail('');
 };
